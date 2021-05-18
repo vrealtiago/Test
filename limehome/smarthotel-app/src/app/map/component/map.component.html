@@ -1,0 +1,16 @@
+<agm-map [latitude]="coordinates.latitude" [longitude]="coordinates.longitude" [zoom]="zoom">
+<!--  <agm-marker [latitude]="coordinates.latitude" [longitude]="coordinates.longitude"></agm-marker>-->
+
+  <agm-marker *ngFor="let m of markers; let i = index"
+              (markerClick)="clickedMarker(m.id, i, info)"
+              [latitude]="m.lat"
+              [longitude]="m.lng"
+
+              [iconUrl]="{url: m.isOpen ? './assets/images/home-icon-active.svg' : './assets/images/home-icon.svg'}">
+
+    <agm-info-window #info
+      (infoWindowClose)="closeInfoWindow(m.id)">
+      <strong>Show New Component</strong>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
