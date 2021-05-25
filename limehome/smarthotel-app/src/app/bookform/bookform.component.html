@@ -1,0 +1,31 @@
+<div class="formBody" *ngIf="!confirmationBooking">
+  <button (click)="cancel()" class="btnCancel"><i class="fa fa-close" aria-hidden="true"> </i></button>
+  <form [formGroup]="bookForm">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" formControlName="name">
+    </div>
+    <div>
+      <label for="postalCode">Postal Code</label>
+      <input type="text" name="postalCode" id="postalCode" formControlName="postalCode">
+    </div>
+    <div>
+      <label for="city">City</label>
+      <input type="text" name="city" id="city" formControlName="city">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" formControlName="email">
+    </div>
+    <div *ngIf="errorMsg !== ''">
+      <h4 class="errorMsg">{{errorMsg}}</h4>
+    </div>
+    <div>
+      <button class="actionBtn" type="button" (click)="confirm()">Book Now</button>
+    </div>
+  </form>
+</div>
+<div class="confirmationBody" *ngIf="confirmationBooking">
+  <h2>Thanks for Booking</h2>
+  <button type="button" class="actionBtn" (click)="close()">Close</button>
+</div>

@@ -1,0 +1,191 @@
+.cards
+  display: flex
+  flex-wrap: nowrap
+  overflow-x: auto
+  -webkit-overflow-scrolling: touch
+.cardDetails
+  border: solid 0 blue
+  float: left
+  background: #ffffff
+  flex: 0 0 auto
+.cardBody
+  float: left
+  width: 90%
+  padding: 5% 5% 0 5%
+
+.cardImg
+  border: solid red 0
+  float: left
+  img
+    width: 100%
+    height: 100%
+.cardTxt
+  float: left
+  width: 50%
+  margin: 0 0 0 5%
+  span
+    float: left
+    width: 100%
+.cardBtn
+  float: left
+  margin: 10px 0 0 0
+  width: 100%
+  button
+    float: left
+    margin: 0 0 0 5%
+    background: #f7941d
+    border: solid 0
+    color: #fff
+    font-weight: bold
+    cursor: pointer
+  button:hover
+    //background: #b26422
+    opacity: 0.90
+  button:active
+    opacity: 0.50
+
+
+//Desktops
+@media screen and (min-width: 1025px)
+  .cardDetails
+    width: 85%
+    max-width: 25rem
+    height: 47vh
+    max-height: 22rem
+    margin: 0 0 0 2rem
+
+  .cardImg
+    width: 10rem
+    height: 16rem
+
+  .cardTxt
+    span
+      font-size: 12px
+    .name
+      font-weight: bold
+      font-size: 14px
+      padding: 0 0 10px 0
+    .distance
+      color: #747d85
+      letter-spacing: 1px
+      font-size: 11px
+      padding: 0 0 14.5vh 0
+    .dayPrice
+      font-weight: bold
+      font-size: 16px
+      padding: 0 0 0 0
+    .info
+      color: #747d85
+      font-size: 11px
+  button
+    width: 67vw
+    max-width: 22.5rem
+    height: 40px
+
+//laptops
+@media screen and (max-width: 1024px)
+  .cardDetails
+    width: 85%
+    max-width: 25rem
+    height: 47vh
+    margin: 0 0 0 2rem
+
+  .cardImg
+    width: 10rem
+    height: 16rem
+
+  .cardTxt
+    span
+      font-size: 12px
+    .name
+      font-weight: bold
+      font-size: 14px
+      padding: 0 0 10px 0
+    .distance
+      color: #747d85
+      letter-spacing: 1px
+      font-size: 11px
+      padding: 0 0 22.5vh 0
+    .dayPrice
+      font-weight: bold
+      font-size: 16px
+      padding: 0 0 0 0
+    .info
+      color: #747d85
+      font-size: 11px
+  button
+    width: 67vw
+    max-width: 22.5rem
+    height: 40px
+//Tablets
+@media screen and (max-width: 768px)
+  .cardDetails
+    width: 85%
+    max-width: 25rem
+    height: 47vh
+    margin: 0 0 0 2rem
+
+  .cardImg
+    width: 10rem
+    height: 16rem
+
+  .cardTxt
+    span
+      font-size: 12px
+    .name
+      font-weight: bold
+      font-size: 14px
+      padding: 0 0 10px 0
+    .distance
+      color: #747d85
+      letter-spacing: 1px
+      font-size: 11px
+      padding: 0 0 22.5vh 0
+    .dayPrice
+      font-weight: bold
+      font-size: 16px
+      padding: 0 0 0 0
+    .info
+      color: #747d85
+      font-size: 11px
+  button
+    width: 67vw
+    max-width: 22.5rem
+    height: 40px
+//mobile
+@media screen and (max-width: 480px)
+  .cardDetails
+    width: 280px
+    height: 222px
+    margin: 0 0 0 15px
+
+  .cardImg
+    width: 100px
+    height: 138px
+
+  .cardTxt
+    span
+      font-size: 12px
+    .name
+      font-weight: bold
+      font-size: 14px
+      padding: 0 0 10px 0
+    .distance
+      color: #747d85
+      letter-spacing: 1px
+      font-size: 11px
+      padding: 0 0 42px 0
+    .dayPrice
+      font-weight: bold
+      font-size: 16px
+      padding: 0 0 0 0
+    .info
+      color: #747d85
+      font-size: 11px
+
+  button
+    width: 248px
+    height: 40px
+
+
+

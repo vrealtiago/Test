@@ -1,0 +1,22 @@
+<div *ngIf="itemSelected == null" class="cards">
+  <div *ngFor="let apt of apts; let i = index" class="cardDetails" [id]="apt.id" (click)="aptSelectById = apt.id">
+    <div  class="cardBody">
+      <div class="cardImg"><img [src]="apt.photo" alt="best photo"></div>
+      <div class="cardTxt">
+        <span class="name">{{apt.name}}</span>
+        <br />
+        <span class="distance">{{apt.distance}}</span>
+        <br />
+        <span class="dayPrice">{{apt.dayPrice}}</span>
+        <br />
+        <span class="info">{{apt.info}}</span>
+      </div>
+    </div>
+    <div class="cardBtn">
+      <button (click)="aptSelectedForm(apt)" type="button">Book</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="itemSelected !== null">
+  <app-bookform [aptSelected]="itemSelected" (responseForm)="resultForm($event)"></app-bookform>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {MapService} from "../services/map.service";
 @Component({
   selector: 'app-map',
@@ -6,29 +6,30 @@ import {MapService} from "../services/map.service";
   styleUrls: ['./map.component.sass']
 })
 export class MapComponent implements OnInit {
+  // fake data for markers
   markers = [
     {
-      id: 'hotelA',
-      lat: 48.132323,
-      lng: 11.578362,
+      id: 'apt_Augsburg',
+      lat: 48.3702735,
+      lng: 10.902418,
       isOpen: false
     },
     {
-      id: 'hotelB',
-      lat:  48.128323,
-      lng: 11.574362,
+      id: 'apt_Bamberg',
+      lat:  49.8942282,
+      lng: 10.8878785,
       isOpen: false
     },
     {
-      id: 'hotelC',
-      lat:  48.132323,
-      lng: 11.578362,
+      id: 'apt_Berlin',
+      lat:  52.5283758,
+      lng: 13.422874,
       isOpen: false
     }
   ];
   lastInfoWin;
   markersSelectedId = '';
-  zoom: number = 15;
+  zoom: number = 14;
   coordinates = {
     latitude:  48.130323,
     longitude: 11.576362
@@ -41,33 +42,33 @@ export class MapComponent implements OnInit {
           latitude:  +(pos.coords.latitude),
           longitude: +(pos.coords.longitude)
         };
-        this.setMarkersPosition();
       });
   }
 
-  clickedMarker(id: string, index: number, info: any) {
+  clickedMarker(id: string, index: number) {
     if(this.markersSelectedId !== id && this.markersSelectedId !== '') {
       this.markers.find(m => m.id == this.markersSelectedId).isOpen = false;
     }
     this.markersSelectedId = id;
     this.markers[index].isOpen = true;
+  }
 
-    if (this.lastInfoWin) {
-      this.lastInfoWin.close();
+  changeMarker(value){
+    if(value !== '') {
+      const markerIndex = this.markers.findIndex(m => m.id == value);
+      this.clickedMarker(value, markerIndex)
+      this.centerMap(value);
     }
-    this.lastInfoWin = info;
   }
-  closeInfoWindow(id){
-    const marker = this.markers.find(m => m.id == id )
-    marker.isOpen = false;
+  centerMap(marker){
+    const markSelected = this.markers.find(m => m.id == marker);
+    this.coordinates = {
+      latitude:  markSelected.lat,
+      longitude: markSelected.lng
+    }
+    this.zoom = 18
   }
-
-
-  setMarkersPosition() {
-    this.markers.forEach((m, index) => {
-      const random = +('0.00'.concat((Math.floor(Math.random() * 100) + 5).toString()));
-      this.markers[index].lat = this.coordinates.latitude - random;
-      this.markers[index].lng = this.coordinates.longitude - random;
-    });
+  setZoom(event){
+    this.zoom = event;
   }
 }
